@@ -1,4 +1,4 @@
-export function getCategories() {
+export async function getCategories() {
   const url = 'https://api.mercadolibre.com/sites/MLB/categories';
   const categoriesAPI = await fetch(url, { mode: 'no-cors' })
     .then((response) => response.json())
