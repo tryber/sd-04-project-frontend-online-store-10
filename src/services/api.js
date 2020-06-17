@@ -1,8 +1,8 @@
-export async function getCategories() {
+export function getCategories() {
   const url = 'https://api.mercadolibre.com/sites/MLB/categories';
-  const categoriesAPI = await fetch(url, { mode: 'no-cors' })
-    .then((response) => response.json())
-    .catch((error) => console.log(error));
+  const categoriesAPI = fetch(url)
+    .then((response) => response.json());
+    // .catch((error) => console.log(error));
   return categoriesAPI;
 }
 
