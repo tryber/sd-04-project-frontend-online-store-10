@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import { BrowserRouter } from 'react-router-dom';
-import Categorie from './Categories';
+import Categorie from './componentes/Categories';
 
 function App() {
   return (

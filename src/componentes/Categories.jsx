@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import * as API from './services/api';
+import * as API from '../services/api';
 
 class Categories extends Component {
   constructor(props) {
