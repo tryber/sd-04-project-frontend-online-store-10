@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import './SearchBar.css';
 
 class SearchBar extends React.Component {
+
   render() {
     const { searchText, onClick } = this.props;
     return (
