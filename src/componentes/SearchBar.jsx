@@ -30,9 +30,4 @@ class SearchBar extends React.Component {
   }
 }
 
-SearchBar.propTypes = {
-  searchText: PropTypes.string,
-  onClick: PropTypes.func,
-};
-
 export default SearchBar;
