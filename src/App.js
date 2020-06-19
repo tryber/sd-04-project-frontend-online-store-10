@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
-import { Route, Link } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
 import Categorie from './componentes/Categories';
-
+import Home from './pages/home';
 
 function App() {
   return (
@@ -11,9 +11,11 @@ function App() {
         <Categorie />
       </header>
       <main>
-        <switch>
-          <Route />
-        </switch>
+        <BrowserRouter>
+          <Switch>
+            <Route exact path="/" component={Home} />
+          </Switch>
+        </BrowserRouter>
       </main>
     </div>
 
