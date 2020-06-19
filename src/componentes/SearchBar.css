@@ -30,3 +30,6 @@
   padding: 15px 13px;
 }
 
+.message {
+  display: none;
+}

@@ -1,12 +1,12 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import SearchBar from './componentes/SearchBar';
+import Categories from './componentes/Categories';
 
 function App() {
   return (
     <div className="App">
-
+      <header className="App-header">
+        <Categories />
       </header>
     </div>
   );

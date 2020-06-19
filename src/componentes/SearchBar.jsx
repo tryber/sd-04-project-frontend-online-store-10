@@ -20,6 +20,9 @@ class SearchBar extends React.Component {
             className="btn-search-bar"
             onClick={onClick}
           />
+          <p className="message" data-testid="home-initial-message">
+            Digite algum termo de pesquisa ou escolha uma categoria.
+          </p>
         </label>
       </div>
     );
