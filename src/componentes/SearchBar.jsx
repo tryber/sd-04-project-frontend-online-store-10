@@ -14,7 +14,6 @@ class SearchBar extends React.Component {
             name="search"
             value={searchText}
             placeholder="Digite algum termo de pesquisa ou escolha uma categoria."
-            data-testid="home-initial-message"
           />
           <button
             type="button"
