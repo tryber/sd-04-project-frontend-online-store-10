@@ -1,25 +1,36 @@
 import React from 'react';
-import './App.css';
-<<<<<<< HEAD
-import { Route, Link } from 'react-router-dom';
-import Categories from './componentes/Categories';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Link,
+} from 'react-router-dom';
+import Logo from './images/logo-react.png';
 
-=======
-import Categories from './componentes/Categories';
->>>>>>> 2-barra-de-pesquisa
+import './App.css';
+import Home from './pages/home';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <Categories />
-      </header>
-      <main>
-        <switch>
-          <Route />
-        </switch>
-      </main>
-    </div>
+    <Router>
+      <div className="App">
+        <header className="App-header">
+          <Link to="/"><img className="logo" src={Logo} alt="logo-react" /></Link>
+
+        </header>
+
+
+        <main>
+          <Switch>
+            <Route exact to="/" component={Home} />
+            <Route to="cart" />
+          </Switch>
+        </main>
+      </div>
+
+    </Router>
+
 
   );
 }
