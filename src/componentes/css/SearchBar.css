@@ -1,0 +1,42 @@
+.main-search-bar {
+  background-color: white;
+  border: 1px solid gray;
+  left: 30%;
+  margin-top: 5px;
+  max-width: 40%;
+  position: relative;
+  right: auto;
+}
+
+.main-search-bar label {
+  align-self: center;
+  display: flex;
+  width: 100%;
+}
+
+.input-search-bar {
+  font-size: 20px;
+  height: 30px;
+  min-width: 100%;
+  padding: 4px 0;
+}
+
+.btn-search-bar {
+  background-color: white;
+  background-image: url('../../images/search-13-24.png');
+  background-repeat: no-repeat;
+  background-size: 21px 21px;
+  border: none;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-block;
+  padding: 22px 12px 0;
+  position: absolute;
+  right: 0;
+  top: 10px;
+}
+
+.message {
+  display: none;
+  width: 0;
+}
