@@ -2,6 +2,7 @@ import React from 'react';
 import './SearchBar.css';
 
 class SearchBar extends React.Component {
+
   render() {
     const { searchText, onClick } = this.props;
     return (
@@ -13,13 +14,15 @@ class SearchBar extends React.Component {
             name="search"
             value={searchText}
             placeholder="Digite algum termo de pesquisa ou escolha uma categoria."
-            data-testid="home-initial-message"
           />
           <button
             type="button"
             className="btn-search-bar"
             onClick={onClick}
           />
+          <p className="message" data-testid="home-initial-message">
+            Digite algum termo de pesquisa ou escolha uma categoria.
+          </p>
         </label>
       </div>
     );
