@@ -11,7 +11,7 @@ class ItemsList extends React.Component {
     };
   }
 
-  UNSAFE_componentWillUpdate(nextProps) {
+  componentDidUpdate(nextProps) {
     const { categoryId, searchText } = nextProps;
     if (categoryId || searchText) {
       API.getProductsFromCategoryAndQuery(categoryId, searchText).then((data) => {
