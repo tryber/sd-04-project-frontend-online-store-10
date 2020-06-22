@@ -17,7 +17,7 @@ class Home extends Component {
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onSelectedCategoryChange = this.onSelectedCategoryChange.bind(this);
   }
-  
+
   onSearchTextChange(e) {
     const value = e.target.value;
     this.setState({ searchText: value });
