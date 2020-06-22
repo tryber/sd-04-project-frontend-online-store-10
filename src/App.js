@@ -6,7 +6,7 @@ import {
   Link,
 } from 'react-router-dom';
 import Logo from './images/logo-react.png';
-
+import shoppingCart from './pages/shoppingCart';
 import './App.css';
 import Home from './pages/home';
 
@@ -24,7 +24,7 @@ function App() {
         <main>
           <Switch>
             <Route exact to="/" component={Home} />
-            <Route to="cart" />
+            <Route to="/shopping-cart" component={shoppingCart} />
           </Switch>
         </main>
       </div>
