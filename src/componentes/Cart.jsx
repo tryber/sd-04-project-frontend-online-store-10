@@ -8,7 +8,7 @@ class Cart extends Component {
     this.state = { items: null };
   }
 
-  ComponentDidMount() {
+  componentDidMount() {
     if (this.props.selectedItems) {
       this.setState({ items: this.props.selectedItems });
     }
