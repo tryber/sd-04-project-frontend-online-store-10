@@ -16,7 +16,7 @@ class ItemsList extends React.Component {
     const { categoryId, searchText } = nextProps;
     console.log(nextProps);
     console.log(this.props);
-      
+
     if (categoryId || searchText) {
       await API.getProductsFromCategoryAndQuery(categoryId, searchText).then((data) => {
         const { results } = data;
