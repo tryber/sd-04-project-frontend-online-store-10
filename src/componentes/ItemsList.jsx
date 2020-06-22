@@ -9,19 +9,13 @@ class ItemsList extends React.Component {
       items: null,
       loading: true,
     };
-    this.props = ({ categoryId: null, searchText: null });
   }
 
   componentDidUpdate(nextProps) {
     const { categoryId, searchText } = nextProps;
-    console.log(nextProps);
-    console.log(this.props);
-
     if (categoryId || searchText) {
       API.getProductsFromCategoryAndQuery(categoryId, searchText).then((data) => {
         const { results } = data;
-        console.log(results);
-
         this.setState({ items: results, loading: false });
       });
     }
@@ -29,8 +23,13 @@ class ItemsList extends React.Component {
 
   render() {
     const { items, loading } = this.state;
+<<<<<<< HEAD
     if (loading || !items) {
       console.log(`teste ${items}`);
+=======
+    if (loading) {
+      /* console.log(`teste ${items}`); */
+>>>>>>> 882c4cb987dee6c3c09e93bc68dc3767bcfaa2aa
       return (
         <h2 data-testid="home-initial-message">
           Digite algum termo de pesquisa ou escolha uma categoria.
