@@ -5,7 +5,7 @@ class SearchBar extends React.Component {
   render() {
     return (
       <form className="main-search-bar">
-        <label htmlFor="searchBar">
+        <label htmlFor="searchBar" >
           <input
             className="input-search-bar"
             id="searchBar"
