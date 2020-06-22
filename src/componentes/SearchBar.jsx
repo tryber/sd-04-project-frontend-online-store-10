@@ -5,8 +5,7 @@ class SearchBar extends React.Component {
   render() {
     return (
       <form className="main-search-bar">
-        <label htmlFor="searchBar" data-testid="home-initial-message">
-          Digite algum termo de pesquisa ou escolha uma categoria.
+        <label htmlFor="searchBar" >
           <input
             className="input-search-bar"
             id="searchBar"
