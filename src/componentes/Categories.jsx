@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import * as API from '../services/api';
 import Loading from './Loanding';
+import './css/Categories.css';
 
 class Categories extends Component {
   constructor(props) {
@@ -21,15 +22,17 @@ class Categories extends Component {
     return (
       <div onChange={this.props.onSelectedCategoryChange} className="category-list">
         {categories.map(({ id, name }) => (
-          <label data-testid="category" htmlFor={id} key={id}>
-            <input
-              name="categories"
-              id={id}
-              value={this.props.category}
-              type="radio"
-            />
-            {name}
-          </label>
+          <div className="categories">
+            <label data-testid="category" htmlFor={id} key={id}>
+              <input
+                name="categories"
+                id={id}
+                value={this.props.category}
+                type="radio"
+              />
+              {name}
+            </label>
+          </div>
         ))}
       </div>
     );

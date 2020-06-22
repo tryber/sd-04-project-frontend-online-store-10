@@ -1,3 +1,7 @@
+* {
+  border: 1px;
+}
+
 .content-container {
   display: flex;
   max-width: 100%;
@@ -11,7 +15,7 @@
   display: flex;
   justify-content: center;
   margin: 10px;
-  min-width: 80%;
+  min-width: 70%;
   text-align: center;
 }
 
@@ -21,13 +25,15 @@
   display: flex;
   height: 100%;
   margin: 10px;
-  width: 350px;
+  min-width: 20%;
 }
 
 .nav-page {
   position: absolute;
   top: 15px;
+  height: 71px;
   width: 100%;
+  z-index: 0;
 }
 
 .cart-icon {
