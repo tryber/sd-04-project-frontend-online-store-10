@@ -17,10 +17,7 @@ function App() {
       <div className="App">
         <header className="App-header">
           <Link to="/"><img className="logo" src={Logo} alt="logo-react" /></Link>
-
         </header>
-
-
         <main>
           <Switch>
             <Route exact to="/" component={Home} />
@@ -28,10 +25,7 @@ function App() {
           </Switch>
         </main>
       </div>
-
     </Router>
-
-
   );
 }
 
