@@ -3,27 +3,20 @@ import './css/SearchBar.css';
 
 class SearchBar extends React.Component {
   render() {
-    const { searchText, onClick } = this.props;
     return (
-      <div className="main-search-bar">
-        <label htmlFor="search">
+      <form className="main-search-bar">
+        <label htmlFor="searchBar" data-testid="home-initial-message">
+          Digite algum termo de pesquisa ou escolha uma categoria.
           <input
             className="input-search-bar"
+            id="searchBar"
             type="text"
-            name="search"
-            value={searchText}
+            onChange={this.props.onSearchTextChange}
+            value={this.props.searchText}
             placeholder="Digite algum termo de pesquisa ou escolha uma categoria."
           />
-          <button
-            type="button"
-            className="btn-search-bar"
-            onClick={onClick}
-          />
-          <p className="message" data-testid="home-initial-message">
-            Digite algum termo de pesquisa ou escolha uma categoria.
-          </p>
         </label>
-      </div>
+      </form>
     );
   }
 }
