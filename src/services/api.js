@@ -15,7 +15,7 @@ export async function getProductsFromCategoryAndQuery(categoryId, query) {
   } else {
     url = `https://api.mercadolibre.com/sites/MLB/search?q=${query}`;
   }
-  const seachAPI = await fetch(url, { mode: 'no-cors' })
+  const seachAPI = await fetch(url)
     .then((response) => response.json())
     .catch((error) => console.log(error));
   return seachAPI;

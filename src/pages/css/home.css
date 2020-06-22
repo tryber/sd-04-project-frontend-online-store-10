@@ -1,0 +1,39 @@
+.content-container {
+  display: flex;
+  max-width: 100%;
+  min-height: 100%;
+  text-align: center;
+}
+
+.items-container {
+  border: solid 3px black;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+  min-width: 80%;
+  text-align: center;
+}
+
+.categories-container {
+  border: solid 3px black;
+  border-radius: 6px;
+  display: flex;
+  height: 100%;
+  margin: 10px;
+  width: 350px;
+}
+
+.nav-page {
+  position: absolute;
+  top: 15px;
+  width: 100%;
+}
+
+.cart-icon {
+  bottom: 41px;
+  float: left;
+  left: 71.3%;
+  position: relative;
+  width: 40px;
+}
