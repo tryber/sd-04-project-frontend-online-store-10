@@ -23,13 +23,8 @@ class ItemsList extends React.Component {
 
   render() {
     const { items, loading } = this.state;
-<<<<<<< HEAD
-    if (loading || !items) {
-      console.log(`teste ${items}`);
-=======
     if (loading) {
       /* console.log(`teste ${items}`); */
->>>>>>> 882c4cb987dee6c3c09e93bc68dc3767bcfaa2aa
       return (
         <h2 data-testid="home-initial-message">
           Digite algum termo de pesquisa ou escolha uma categoria.
