@@ -12,15 +12,15 @@ class ItemsList extends React.Component {
     this.props = ({ categoryId: null, searchText: null });
   }
 
-  async componentWillUpdate(nextProps) {
+  componentDidUpdate(nextProps) {
     const { categoryId, searchText } = nextProps;
-    /* console.log(nextProps);
-    console.log(this.props); */
+    console.log(nextProps);
+    console.log(this.props);
 
     if (categoryId || searchText) {
-      await API.getProductsFromCategoryAndQuery(categoryId, searchText).then((data) => {
+      API.getProductsFromCategoryAndQuery(categoryId, searchText).then((data) => {
         const { results } = data;
-        /* console.log(results); */
+        console.log(results);
 
         this.setState({ items: results, loading: false });
       });
@@ -30,7 +30,7 @@ class ItemsList extends React.Component {
   render() {
     const { items, loading } = this.state;
     if (loading || !items) {
-      /* console.log(`teste ${items}`); */
+      console.log(`teste ${items}`);
       return (
         <h2 data-testid="home-initial-message">
           Digite algum termo de pesquisa ou escolha uma categoria.
