@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import ItemCard from './ItemCard';
 
-
 class Cart extends Component {
   constructor(props) {
     super(props);
