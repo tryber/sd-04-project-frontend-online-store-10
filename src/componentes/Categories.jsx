@@ -19,16 +19,19 @@ class Categories extends Component {
     const { categories, loading } = this.state;
     if (loading) { return (<Loading />); }
     return (
-      <ol>
+      <div onChange={this.props.onSelectedCategoryChange} className="category-list">
         {categories.map(({ id, name }) => (
-          <li className="category-list">
-            <label data-testid="category" htmlFor={id}>
-              <input name="categories" id={id} value={id} type="radio" />
-              {name}
-            </label>
-          </li>
+          <label data-testid="category" htmlFor={id} key={id}>
+            <input
+              name="categories"
+              id={id}
+              value={this.props.category}
+              type="radio"
+            />
+            {name}
+          </label>
         ))}
-      </ol>
+      </div>
     );
   }
 }
