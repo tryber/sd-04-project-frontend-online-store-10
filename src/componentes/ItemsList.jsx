@@ -1,7 +1,6 @@
 import React from 'react';
 import ItemCard from './ItemCard';
 import * as API from '../services/api';
-import { Redirect } from 'react-router-dom';
 
 class ItemsList extends React.Component {
   constructor(props) {
@@ -13,7 +12,7 @@ class ItemsList extends React.Component {
     this.props = ({ categoryId: null, searchText: null });
   }
 
-  async UNSAFE_componentWillUpdate(nextProps) {
+  async componentWillUpdate(nextProps) {
     const { categoryId, searchText } = nextProps;
     console.log(nextProps);
     console.log(this.props);
