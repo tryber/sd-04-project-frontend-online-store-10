@@ -25,9 +25,9 @@ class Cart extends Component() {
             src="../images/caixa-de-papelao-vazia.jpg"
             alt="Imagem de caixa vazia"
           />
-          <h3 data-testid="shopping-cart-button" className="texto-caixa">
+          <p data-testid="shopping-cart-empty-message" className="texto-caixa">
             Seu carrinho está vazio
-          </h3>
+          </p>
         </div>
       );
     }
