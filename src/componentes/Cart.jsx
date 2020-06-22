@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import ItemCard from './ItemCard';
 
-
-class Cart extends Component() {
+class Cart extends Component {
   constructor(props) {
     super(props);
     this.state = { items: null };
   }
 
-  ComponentDidMount() {
+  componentDidMount() {
     if (this.props.selectedItems) {
       this.setState({ items: this.props.selectedItems });
     }
@@ -25,7 +24,7 @@ class Cart extends Component() {
             src="../images/caixa-de-papelao-vazia.jpg"
             alt="Imagem de caixa vazia"
           />
-          <p data-testid="shopping-cart-empty-message" className="texto-caixa">
+          <h3 data-testid="shopping-cart-empty-message" className="texto-caixa">
             Seu carrinho está vazio
           </p>
         </div>

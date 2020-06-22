@@ -1,0 +1,12 @@
+.category-list {
+  align-items: center;
+  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.categories {
+  display: flex;
+  margin-bottom: 0.5em;
+}

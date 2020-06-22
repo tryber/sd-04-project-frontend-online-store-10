@@ -6,7 +6,7 @@ import {
   Link,
 } from 'react-router-dom';
 import Logo from './images/logo-react.png';
-
+import shoppingCart from './pages/shoppingCart';
 import './App.css';
 import Home from './pages/home';
 
@@ -17,21 +17,15 @@ function App() {
       <div className="App">
         <header className="App-header">
           <Link to="/"><img className="logo" src={Logo} alt="logo-react" /></Link>
-
         </header>
-
-
         <main>
           <Switch>
             <Route exact to="/" component={Home} />
-            <Route to="cart" />
+            <Route to="/shopping-cart" component={shoppingCart} />
           </Switch>
         </main>
       </div>
-
     </Router>
-
-
   );
 }
 

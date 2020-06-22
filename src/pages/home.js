@@ -24,7 +24,7 @@ class Home extends Component {
   }
 
   onSelectedCategoryChange(e) {
-    const value = e.target.value;
+    const value = e.target.id;
     this.setState({ categoryId: value });
   }
 
