@@ -26,10 +26,9 @@
 
 .nav-page {
   position: absolute;
-  top: 15px;
   height: 71px;
+  top: 15px;
   width: 100%;
-  z-index: 0;
 }
 
 .cart-icon {

@@ -23,7 +23,7 @@ class Categories extends Component {
       <div onChange={this.props.onSelectedCategoryChange} className="category-list">
         {categories.map(({ id, name }) => (
           <div className="categories" key={name}>
-            <label data-testid="category" htmlFor={id} >
+            <label data-testid="category" htmlFor={id}>
               <input
                 name="categories"
                 id={id}
