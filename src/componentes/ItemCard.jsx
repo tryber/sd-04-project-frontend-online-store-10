@@ -11,7 +11,7 @@ class itemCard extends React.Component {
         <div className="item-card-body">
           <h2 className="item-card-title">{item.title}</h2>
           <p className="item-card-subtitle">{item.price}</p>
-          <Link to="item-details">Mostrar detalhes</Link>
+          <Link to={`/item-details/${item.id}`} >Mostrar detalhes</Link>
         </div>
       </div>
     );
