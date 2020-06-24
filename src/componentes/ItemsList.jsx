@@ -6,7 +6,7 @@ class ItemsList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      items: null,
+      items: '',
       loading: true,
     };
   }
@@ -24,7 +24,6 @@ class ItemsList extends React.Component {
   render() {
     const { items, loading } = this.state;
     if (loading) {
-      /* console.log(`teste ${items}`); */
       return (
         <h2 data-testid="home-initial-message">
           Digite algum termo de pesquisa ou escolha uma categoria.
