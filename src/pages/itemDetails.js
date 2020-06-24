@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import Loading from '../componentes/Loanding';
 
-class MovieDetails extends Component {
+class ItemDetails extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -20,39 +19,29 @@ class MovieDetails extends Component {
       redirect: false,
     };
   }
- 
+
   render() {
     const { loading, redirect } = this.state;
-    const { movie } = this.props;
+    const { item } = this.props;
     if (redirect) { return <Redirect to="/" />; }
     if (loading) { return <Loading />; }
-    const { storyline, imagePath, genre, rating, title, subtitle, id } = movie;
+    const { storyline, imagePath, price, rating, title, subtitle, id, installments } = item;
     return (
       <div data-testid="movie-details">
         <h1>{title}</h1>
         <img alt="Movie Cover" src={`/${imagePath}`} />
         <p>{`Subtitle: ${subtitle}`}</p>
         <p>{`Storyline: ${storyline}`}</p>
-        <p>{`Genre: ${genre}`}</p>
+        <p>{`Price: ${price}`}</p>
         <p>{`Rating: ${rating}`}</p>
+        <p>{`Quantity: ${installments.quantity}`}</p>
         <div>
           <Link to={`/movies/${id}/edit`}>EDITAR</Link>
           <Link to="/">VOLTAR</Link>
-          <Link to="/" onClick={() => { movieAPI.deleteMovie(id); }}>
-            DELETAR
-            </Link>
         </div>
       </div>
     );
   }
 }
 
-MovieDetails.propTypes = {
-  match: PropTypes.shape({
-    params: PropTypes.shape({
-      id: PropTypes.number,
-    }),
-  }).isRequired,
-};
-
-export default MovieDetails;
+export default ItemDetails;

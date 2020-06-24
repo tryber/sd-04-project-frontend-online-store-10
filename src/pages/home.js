@@ -23,14 +23,19 @@ class Home extends Component {
   }
   componentDidUpdate() {
     const { categoryId, searchText } = this.state;
-    console.log(this.state);
-    if (categoryId || searchText) {
+    console.log(this.state.setItems);
+
+    if (categoryId && !searchText) {
+      API.getProductsFromCategoryAndQuery(categoryId, searchText).then((data) => {
+        const { results } = data;
+        this.setState({ setItems: results });
+      });
+    } else if (categoryId || searchText) {
       API.getProductsFromCategoryAndQuery(categoryId, searchText).then((data) => {
         const { results } = data;
         this.setState({ items: results });
       });
     }
-
   }
   onSearchTextChange(e) {
     const value = e.target.value;
@@ -40,7 +45,6 @@ class Home extends Component {
   onSelectedCategoryChange(e) {
     const value = e.target.id;
     this.setState({ categoryId: value });
-
   }
 
   onClick() {
@@ -72,15 +76,18 @@ class Home extends Component {
         <div className="content-container">
           <div className="categories-container">
             <Categories
-              category={categoryId}
-              onSelectedCategoryChange={this.onSelectedCategoryChange}
+              category={categoryId} onSelectedCategoryChange={this.onSelectedCategoryChange}
             />
           </div>
           <div className="items-container">
-            <ItemsList searchText={searchText} categoryId={categoryId} items={setItems} status={status} />
+            <ItemsList
+              searchText={searchText}
+              categoryId={categoryId}
+              items={setItems}
+              status={status}
+            />
           </div>
         </div>
-
       </div>
     );
   }

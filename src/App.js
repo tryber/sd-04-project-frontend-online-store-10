@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom';
 import Logo from './images/logo-react.png';
 import shoppingCart from './pages/shoppingCart';
-import itemDetails from './pages/itemDetails'
+import itemDetails from './pages/itemDetails';
 import './App.css';
 import Home from './pages/home';
 
