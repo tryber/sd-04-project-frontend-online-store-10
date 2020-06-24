@@ -28,7 +28,8 @@
   position: absolute;
   height: 71px;
   top: 15px;
-  width: 100%;
+  left: 15%;
+  width: 50%;
 }
 
 .cart-icon {

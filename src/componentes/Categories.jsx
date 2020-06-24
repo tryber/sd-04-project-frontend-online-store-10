@@ -20,14 +20,13 @@ class Categories extends Component {
     const { categories, loading } = this.state;
     if (loading) { return (<Loading />); }
     return (
-      <div onClick={this.props.onSelectedCategoryChange} className="category-list" data-testid="category">
+      <div onClick={this.props.onSelectedCategoryChange} className="category-list" >
         {categories.map(({ id, name }) => (
-          <div className="categories" key={name}>
+          <div className="categories" key={name} data-testid="category">
             <label htmlFor={id}>
               <input
                 name="categories"
                 id={id}
-                name={id}
                 value={id}
                 type="radio"
               />

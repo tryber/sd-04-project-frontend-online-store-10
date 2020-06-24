@@ -7,7 +7,7 @@ class Cart extends Component {
     this.state = { items: null };
   }
 
-  componentDidMount() {
+  componentDidUpdate() {
     if (this.props.selectedItems) {
       this.setState({ items: this.props.selectedItems });
     }
@@ -26,7 +26,7 @@ class Cart extends Component {
           />
           <h3 data-testid="shopping-cart-empty-message" className="texto-caixa">
             Seu carrinho está vazio
-          </p>
+          </h3>
         </div>
       );
     }
