@@ -6,7 +6,7 @@ class ItemsList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      items: null,
+      items: '',
       loading: true,
     };
   }
