@@ -2,14 +2,10 @@ import React from 'react';
 import ItemCard from './ItemCard';
 
 class ItemsList extends React.Component {
-constructor(props){
-  super(props);
-  
-}
+
 
   render() {
     const { items } = this.props;
-    {console.log(items)}
     if (!items) {
       return (
         <h2 data-testid="home-initial-message">
