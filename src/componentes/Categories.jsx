@@ -17,12 +17,13 @@ class Categories extends Component {
   }
 
   render() {
+    const { getCategory } = this.props;
     const { categories, loading } = this.state;
     if (loading) { return (<Loading />); }
     return (
-      <div onClick={this.props.onSelectedCategoryChange} className="category-list" >
+      <div onClick={getCategory} className="category-list" >
         {categories.map(({ id, name }) => (
-          <div className="categories" key={name} data-testid="category">
+          <div data-testid="category" className="categories" key={name} >
             <label htmlFor={id}>
               <input
                 name="categories"
