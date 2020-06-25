@@ -33,14 +33,12 @@ class Home extends Component {
   }
 
   onClick() {
-    console.log('home' + JSON.stringify(this.state));
     const { categoryId, searchText } = this.state;
-    const fetchAPI = API.getProductsFromCategoryAndQuery(categoryId, searchText)
+    API.getProductsFromCategoryAndQuery(categoryId, searchText)
       .then(data => {
         console.log(data);
         this.setState({ status: true, items: data.results });
       })
-    console.log(categoryId + searchText + fetchAPI);
     setTimeout(() => {
       this.setState({ status: false });
     }, 1000);
