@@ -18,7 +18,7 @@ class itemCard extends React.Component {
     const { item } = this.props;
     const { thumbnail, title, id, price } = item;
     return (
-      <div className="item-card" >
+      <div data-testid="product" className="item-card" >
         <img alt="item Cover" className="item-card-image" src={thumbnail} />
         <div className="item-card-body">
           <h4 className="item-card-title">{title}</h4>
