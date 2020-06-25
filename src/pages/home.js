@@ -21,22 +21,7 @@ class Home extends Component {
     this.onSelectedCategoryChange = this.onSelectedCategoryChange.bind(this);
     this.onClick = this.onClick.bind(this);
   }
-  componentDidUpdate() {
-    const { categoryId, searchText } = this.state;
-    console.log(this.state.setItems);
 
-    if (categoryId && !searchText) {
-      API.getProductsFromCategoryAndQuery(categoryId, searchText).then((data) => {
-        const { results } = data;
-        this.setState({ setItems: results });
-      });
-    } else if (categoryId || searchText) {
-      API.getProductsFromCategoryAndQuery(categoryId, searchText).then((data) => {
-        const { results } = data;
-        this.setState({ items: results });
-      });
-    }
-  }
   onSearchTextChange(e) {
     const value = e.target.value;
     this.setState({ searchText: value });
@@ -48,13 +33,22 @@ class Home extends Component {
   }
 
   onClick() {
-    this.setState({ status: true });
-    const items = this.state.items;
-    this.setState({ setItems: items });
+    console.log('home' + JSON.stringify(this.state));
+    const { categoryId, searchText } = this.state;
+    const fetchAPI = API.getProductsFromCategoryAndQuery(categoryId, searchText)
+      .then(data => {
+        console.log(data);
+        this.setState({ status: true, items: data.results });
+      })
+    console.log(categoryId + searchText + fetchAPI);
+    setTimeout(() => {
+      this.setState({ status: false });
+    }, 1000);
   }
 
+
   render() {
-    const { searchText, categoryId, status, setItems } = this.state;
+    const { searchText, categoryId, status, items } = this.state;
     return (
       <div className="home-container">
         <div className="nav-page">
@@ -66,7 +60,7 @@ class Home extends Component {
           <button
             type="button"
             className="btn-search-bar"
-            onClick={this.onClick}
+            onClick={() => { this.onClick() }}
             data-testid="query-button"
           />
           <Link to="/shopping-cart" data-testid="shopping-cart-button">
@@ -81,9 +75,7 @@ class Home extends Component {
           </div>
           <div className="items-container">
             <ItemsList
-              searchText={searchText}
-              categoryId={categoryId}
-              items={setItems}
+              items={items}
               status={status}
             />
           </div>
