@@ -7,6 +7,13 @@ import SearchBar from '../componentes/SearchBar';
 import CartIcon from '../images/shopping-cart.png';
 import * as API from '../services/api';
 
+function fetchAPI(categoryId, searchText) {
+  API.getProductsFromCategoryAndQuery(categoryId, searchText)
+    .then((data) => {
+      console.log(data);
+      this.setState({ status: true, items: data.results });
+    });
+}
 
 class Home extends Component {
   constructor(props) {
@@ -18,8 +25,8 @@ class Home extends Component {
       setItems: '',
     };
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
-    this.onSelectedCategoryChange = this.onSelectedCategoryChange.bind(this);
-    this.onClick = this.onClick.bind(this);
+    this.selectedCategory = this.selectedCategory.bind(this);
+    this.onClickSearchBar = this.onClickSearchBar.bind(this);
   }
 
   onSearchTextChange(e) {
@@ -27,23 +34,22 @@ class Home extends Component {
     this.setState({ searchText: value });
   }
 
-  onSelectedCategoryChange(e) {
-    const value = e.target.id;
-    this.setState({ categoryId: value });
-  }
-
-  onClick() {
-    const { categoryId, searchText } = this.state;
-    API.getProductsFromCategoryAndQuery(categoryId, searchText)
-      .then(data => {
-        console.log(data);
-        this.setState({ status: true, items: data.results });
-      })
+  onClickSearchBar() {
+    const { searchText } = this.state;
+    fetchAPI('', searchText);
     setTimeout(() => {
       this.setState({ status: false });
-    }, 1000);
+    }, 100);
   }
 
+  selectedCategory(e) {
+    const categoryId = e.target.id;
+    console.log(categoryId);
+    fetchAPI(categoryId);
+    setTimeout(() => {
+      this.setState({ status: false });
+    }, 100);
+  }
 
   render() {
     const { searchText, categoryId, status, items } = this.state;
@@ -58,7 +64,7 @@ class Home extends Component {
           <button
             type="button"
             className="btn-search-bar"
-            onClick={() => { this.onClick() }}
+            onClick={() => { this.onClickSearchBar(); }}
             data-testid="query-button"
           />
           <Link to="/shopping-cart" data-testid="shopping-cart-button">
@@ -67,15 +73,10 @@ class Home extends Component {
         </div>
         <div className="content-container">
           <div className="categories-container">
-            <Categories
-              category={categoryId} onSelectedCategoryChange={this.onSelectedCategoryChange}
-            />
+            <Categories category={categoryId} getCategory={(e) => { this.selectedCategory(e); }} />
           </div>
           <div className="items-container">
-            <ItemsList
-              items={items}
-              status={status}
-            />
+            <ItemsList items={items} status={status} />;
           </div>
         </div>
       </div>
