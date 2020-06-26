@@ -22,7 +22,7 @@ class Categories extends Component {
     if (loading) { return (<Loading />); }
     return (
       <form
-        className="category-list" 
+        className="category-list"
       >
         {categories.map(({ id, name }) => (
           <label
