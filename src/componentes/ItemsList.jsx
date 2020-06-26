@@ -3,19 +3,10 @@ import ItemCard from './ItemCard';
 // import * as API from '../services/api';
 
 class ItemsList extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = ({
-      item: '',
-      categoryId: '',
-      searchText: '',
-    });
-  }
 
   render() {
-    const { status } = this.state;
     const { items } = this.props;
-    if (!items && !status) {
+    if (!items) {
       return (
         <h2 data-testid="home-initial-message">
           Digite algum termo de pesquisa ou escolha uma categoria.
