@@ -17,27 +17,28 @@ class Categories extends Component {
   }
 
   render() {
-    const { onChange } = this.props;
+    const { onClick } = this.props;
     const { categories, loading } = this.state;
     if (loading) { return (<Loading />); }
     return (
       <form
-        onChange={onChange}
-        className="category-list"
+        className="category-list" 
       >
         {categories.map(({ id, name }) => (
           <label
+            data-testid="category"
             className="categories"
             key={name}
             htmlFor={id}
-            data-testid="category"
           >
             <input
               name="categories"
+              onClick={onClick}
               id={id}
               value={id}
               type="radio"
-            />{name}
+            />
+            {name}
           </label>
         ))}
       </form>
