@@ -17,25 +17,31 @@ class Categories extends Component {
   }
 
   render() {
-    const { getCategory } = this.props;
+    const { onChange } = this.props;
     const { categories, loading } = this.state;
     if (loading) { return (<Loading />); }
     return (
-      <div onClick={getCategory} className="category-list" >
+      <form
+        onChange={onChange}
+        className="category-list" >
         {categories.map(({ id, name }) => (
-          <div data-testid="category" className="categories" key={name} >
-            <label htmlFor={id}>
-              <input
-                name="categories"
-                id={id}
-                value={id}
-                type="radio"
-              />
-              {name}
-            </label>
-          </div>
+          <label
+            data-testid="category"
+            className="categories"
+            key={name}
+            htmlFor={id}
+            data-testid="category"
+          >
+            <input
+              name="categories"
+              id={id}
+              value={id}
+              type="radio"
+            />
+            {name}
+          </label>
         ))}
-      </div>
+      </form>
     );
   }
 }
