@@ -37,8 +37,7 @@ class Categories extends Component {
               id={id}
               value={id}
               type="radio"
-            />
-            {name}
+            />{name}
           </label>
         ))}
       </form>

@@ -41,30 +41,26 @@ class Home extends Component {
     const { searchText, status, items } = this.state;
     return (
       <div className="home-container">
-        <div className="nav-page">
-          <SearchBar
-            onSearchTextChange={this.onSearchTextChange}
-            searchText={searchText}
-            className="searchBar"
-          />
-          <button
-            type="button"
-            className="btn-search-bar"
-            onClick={this.setItems}
-            data-testid="query-button"
-          />
-          <Link to="/shopping-cart" data-testid="shopping-cart-button">
-            <img src={CartIcon} alt="icone de carrinho de compras" className="cart-icon" />
-          </Link>
+        <SearchBar
+          onSearchTextChange={this.onSearchTextChange}
+          searchText={searchText}
+          className="searchBar"
+        />
+        <button
+          type="button"
+          className="btn-search-bar"
+          onClick={this.setItems}
+          data-testid="query-button"
+        />
+        <Link to="/shopping-cart" data-testid="shopping-cart-button">
+          <img src={CartIcon} alt="icone de carrinho de compras" className="cart-icon" />
+        </Link>
+        <div className="categories-container">
+          <Categories onClick={this.setItems} />
         </div>
-        <div className="content-container">
-          <div className="categories-container">
-            <Categories onClick={this.setItems} />
+        <div className="items-container">
+          <ItemsList items={items} status={status} />;
           </div>
-          <div className="items-container">
-            <ItemsList items={items} status={status} />;
-          </div>
-        </div>
       </div>
     );
   }

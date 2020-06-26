@@ -7,12 +7,6 @@ class Cart extends Component {
     this.state = { items: null };
   }
 
-  componentDidUpdate() {
-    if (this.props.selectedItems) {
-      this.setState({ items: this.props.selectedItems });
-    }
-  }
-
   render() {
     const { items } = this.state;
 
