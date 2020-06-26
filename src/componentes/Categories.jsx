@@ -23,10 +23,10 @@ class Categories extends Component {
     return (
       <form
         onChange={onChange}
-        className="category-list" >
+        className="category-list"
+      >
         {categories.map(({ id, name }) => (
           <label
-            data-testid="category"
             className="categories"
             key={name}
             htmlFor={id}
