@@ -7,13 +7,6 @@ import SearchBar from '../componentes/SearchBar';
 import CartIcon from '../images/shopping-cart.png';
 import * as API from '../services/api';
 
-function fetchAPI(categoryId, searchText) {
-  API.getProductsFromCategoryAndQuery(categoryId, searchText)
-    .then((data) => {
-      console.log(data);
-      this.setState({ status: true, items: data.results });
-    });
-}
 
 class Home extends Component {
   constructor(props) {
@@ -23,10 +16,10 @@ class Home extends Component {
       categoryId: '',
       items: '',
       setItems: '',
+      status: false,
     };
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
-    this.selectedCategory = this.selectedCategory.bind(this);
-    this.onClickSearchBar = this.onClickSearchBar.bind(this);
+    this.setItems = this.setItems.bind(this);
   }
 
   onSearchTextChange(e) {
@@ -34,25 +27,18 @@ class Home extends Component {
     this.setState({ searchText: value });
   }
 
-  onClickSearchBar() {
+  async setItems(e) {
+    const categoryId = e.target.value;
     const { searchText } = this.state;
-    fetchAPI('', searchText);
-    setTimeout(() => {
-      this.setState({ status: false });
-    }, 100);
-  }
-
-  selectedCategory(e) {
-    const categoryId = e.target.id;
-    console.log(categoryId);
-    fetchAPI(categoryId);
-    setTimeout(() => {
-      this.setState({ status: false });
-    }, 100);
+    API.getProductsFromCategoryAndQuery(categoryId, searchText)
+      .then((data) => {
+        console.log(data);
+        this.setState({ items: data.results });
+      });
   }
 
   render() {
-    const { searchText, categoryId, status, items } = this.state;
+    const { searchText, status, items } = this.state;
     return (
       <div className="home-container">
         <div className="nav-page">
@@ -64,7 +50,7 @@ class Home extends Component {
           <button
             type="button"
             className="btn-search-bar"
-            onClick={() => { this.onClickSearchBar(); }}
+            onClick={this.setItems}
             data-testid="query-button"
           />
           <Link to="/shopping-cart" data-testid="shopping-cart-button">
@@ -73,7 +59,7 @@ class Home extends Component {
         </div>
         <div className="content-container">
           <div className="categories-container">
-            <Categories category={categoryId} getCategory={(e) => { this.selectedCategory(e); }} />
+            <Categories onClick={this.setItems} />
           </div>
           <div className="items-container">
             <ItemsList items={items} status={status} />;
