@@ -17,14 +17,23 @@ class DetailAddToCart extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = {
+      quantity: 0,
+    };
 
   }
 
   render() {
+    const { quantity } = this.state;
     return (
       <div>
-        
+        Quantidade
+        <div>
+          <button>-</button>
+          <p>{quantity}</p>
+          <button>+</button>
+        </div>
+        <button>Adicionar ao Carrinho</button>
       </div>
     );
   }
