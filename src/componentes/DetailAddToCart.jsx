@@ -26,9 +26,8 @@ class DetailAddToCart extends React.Component {
     this.minusQuantity = this.minusQuantity.bind(this);
   }
   plusQuantity() {
-    this.setState((state) => {
-      return { quantity: state.quantity + 1 };
-    });
+    const quantity = this.state;
+    this.setState({ quantity: (quantity + 1) });
   }
 
   minusQuantity() {
