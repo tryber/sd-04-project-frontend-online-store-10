@@ -6,6 +6,7 @@ class itemCard extends React.Component {
   constructor(props) {
     super(props);
     this.setQuantity = this.setQuantity.bind(this);
+    this.setLocalStorage = this.setLocalStorage.bind(this);
   }
   setQuantity() {
     const { item } = this.props;
@@ -13,6 +14,11 @@ class itemCard extends React.Component {
       return '';
     }
     return item.installments.quantity;
+  }
+
+  setLocalStorage(){
+    const item = this.props;
+    localStorage.setItem('ItemDetails', JSON.stringify(Object.values(item)));
   }
   render() {
     const { item } = this.props;
@@ -22,10 +28,9 @@ class itemCard extends React.Component {
         <img alt="item Cover" className="item-card-image" src={thumbnail} />
         <div className="item-card-body">
           <h4 className="item-card-title">{title}</h4>
-          <p className="item-card-price">{price}</p>
+          <p className="item-card-price">`Preço: R${price}`</p>
           <p className="item-card-quantity">Quantity: {this.setQuantity}</p>
-
-          <Link to={`/item-details/${id}`} >Mostrar detalhes</Link>
+          <Link data-testid="product-detail-link" onClick={this.setLocalStorage} to={`/item-details/${id}`} >Mostrar detalhes</Link>
         </div>
       </div>
     );
