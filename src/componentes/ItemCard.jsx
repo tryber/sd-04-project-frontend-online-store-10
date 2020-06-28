@@ -16,7 +16,7 @@ class itemCard extends React.Component {
     return item.installments.quantity;
   }
 
-  setLocalStorage(){
+  setLocalStorage() {
     const item = this.props;
     localStorage.setItem('ItemDetails', JSON.stringify(Object.values(item)));
   }

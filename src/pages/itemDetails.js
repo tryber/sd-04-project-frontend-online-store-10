@@ -14,14 +14,14 @@ class ItemDetails extends Component {
 
   componentDidMount() {
     const itemSelected = JSON.parse(localStorage.getItem('ItemDetails'));
-    const shipping = itemSelected[0].shipping.free_shipping ? 'Frete grátis' : '';
-    
-    this.setState({ item: itemSelected[0],shipping });
-
+    if (itemSelected) {
+      const shipping = itemSelected[0].shipping.free_shipping ? 'Frete grátis' : '';
+      this.setState({ item: itemSelected[0], shipping });
+    }
   }
 
-  componentDidUpdate(){
-        console.log(this.state.item);
+  componentDidUpdate() {
+    console.log(this.state.item);
   }
 
   render() {
@@ -32,12 +32,10 @@ class ItemDetails extends Component {
       <div data-testid="movie-details">
         <h1 data-testid="product-detail-name">{title}</h1>
         <img alt="Movie Cover" src={thumbnail} width="300px" />
-        <p>{`Storyline: `}</p>
-        <p>{`Preço : R$${price}0`}</p>
+        <p>{`Preço : R$${price}`}</p>
         <p>{`Unidades vendidas: ${sold_quantity}`}</p>
         <p>{`Quantidade disponível: ${available_quantity}`}</p>
         <div>
-          <Link to={`/movies/edit`}>EDITAR</Link>
           <Link to="/">VOLTAR</Link>
         </div>
       </div>
