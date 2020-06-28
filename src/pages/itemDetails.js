@@ -4,37 +4,25 @@ import { Link, Redirect } from 'react-router-dom';
 class ItemDetails extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      item: '',
-      loading: true,
-      redirect: false,
-      shipping: '',
-    };
-  }
-
-  componentDidMount() {
-    const itemSelected = JSON.parse(localStorage.getItem('ItemDetails'));
-    if (itemSelected) {
-      const shipping = itemSelected[0].shipping.free_shipping ? 'Frete grátis' : '';
-      this.setState({ item: itemSelected[0], shipping });
-    }
-  }
-
-  componentDidUpdate() {
-    console.log(this.state.item);
+    this.state = { redirect: false };
   }
 
   render() {
-    const { redirect, item } = this.state;
-    const { title, thumbnail, price, available_quantity, sold_quantity } = item;
+    const item = JSON.parse(localStorage.getItem('ItemDetails'))[0];
+    const shipping = item.shipping.free_shipping ? 'Frete grátis' : '';
+    const soldQtt = item.sold_quantity;
+    const qtt = item.available_quantity;
+    const { redirect } = this.state;
+    const { title, thumbnail, price } = item;
     if (redirect) { return <Redirect to="/" />; }
     return (
       <div data-testid="movie-details">
         <h1 data-testid="product-detail-name">{title}</h1>
         <img alt="Movie Cover" src={thumbnail} width="300px" />
         <p>{`Preço : R$${price}`}</p>
-        <p>{`Unidades vendidas: ${sold_quantity}`}</p>
-        <p>{`Quantidade disponível: ${available_quantity}`}</p>
+        <p>{`Unidades vendidas: ${soldQtt}`}</p>
+        <p>{`Quantidade disponível: ${qtt}`}</p>
+        <p>{shipping}</p>
         <div>
           <Link to="/">VOLTAR</Link>
         </div>
