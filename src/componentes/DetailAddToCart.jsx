@@ -26,8 +26,7 @@ class DetailAddToCart extends React.Component {
     this.minusQuantity = this.minusQuantity.bind(this);
   }
   plusQuantity() {
-    const quantity = this.state;
-    this.setState({ quantity: (quantity + 1) });
+    this.setState({ quantity: this.state.quantity + 1 });
   }
 
   minusQuantity() {
@@ -46,10 +45,10 @@ class DetailAddToCart extends React.Component {
         Quantidade
         <div>
           <button onClick={this.minusQuantity}>-</button>
-          <p>{quantity}</p>
+          <span> {quantity} </span>
           <button onClick={this.plusQuantity}>+</button>
         </div>
-        <button className="product-detail-add-to-cart">
+        <button data-testid="product-detail-add-to-cart">
           Adicionar ao Carrinho
         </button>
       </div>
