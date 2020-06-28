@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
+import DetailAddToCart from '../componentes/DetailAddToCart';
 
 class ItemDetails extends Component {
   constructor(props) {
@@ -23,6 +24,7 @@ class ItemDetails extends Component {
         <p>{`Unidades vendidas: ${soldQtt}`}</p>
         <p>{`Quantidade disponível: ${qtt}`}</p>
         <p>{shipping}</p>
+        <DetailAddToCart />
         <div>
           <Link to="/">VOLTAR</Link>
         </div>
