@@ -17,26 +17,26 @@ class ItemDetails extends Component {
     const soldQtt = item.sold_quantity;
     const qtt = item.available_quantity;
     const { redirect } = this.state;
-    const { title, thumbnail, price } = item;
     if (redirect) { return <Redirect to="/" />; }
     return (
       <div data-testid="movie-details">
-        <h1 data-testid="product-detail-name">{title}</h1>
-        <img alt="Movie Cover" src={thumbnail} width="300px" />
-        <p>{`Preço : R$${price}`}</p>
+        <h1 data-testid="product-detail-name">{item.title}</h1>
+        <img alt="Movie Cover" src={item.thumbnail} width="300px" />
+        <p>{`Preço : R$${item.price}`}</p>
         <p>{`Unidades vendidas: ${soldQtt}`}</p>
         <p>{`Quantidade disponível: ${qtt}`}</p>
         <p>{shipping}</p>
         <DetailAddToCart />
         <div>
           <Link to="/">VOLTAR</Link>
-          <button
-            data-testid="product-detail-add-to-cart"
-            onClick={() => { setToCart(item); }}
-          >
+          <button data-testid="product-detail-add-to-cart" onClick={() => { setToCart(item); }} >
             Adicionar no carrinho
             </button>
-          <Link data-testid="shopping-cart-button" to="/shopping-cart"><img src={CartIcon} /></Link>
+          <Link
+            data-testid="shopping-cart-button" to="/shopping-cart"
+          >
+            <img src={CartIcon} alt="icone de carrinho de compras" />
+          </Link>
         </div>
       </div>
     );
