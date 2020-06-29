@@ -1,13 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import setToCart from '../services/utils';
 
 class itemCard extends React.Component {
   constructor(props) {
     super(props);
     this.setQuantity = this.setQuantity.bind(this);
     this.setLocalStorage = this.setLocalStorage.bind(this);
-    this.setCart = this.setCart.bind(this);
   }
   setQuantity() {
     const { item } = this.props;
@@ -15,22 +14,6 @@ class itemCard extends React.Component {
       return '';
     }
     return item.installments.quantity;
-  }
-
-  async setCart() {
-    const { item } = this.props;
-    console.log(item);
-    const shoppingCart = JSON.parse(localStorage.getItem('shoppingCart'));
-    const cart = !shoppingCart ? [] : shoppingCart.map((itemCart) => (itemCart));
-    console.log(cart);
-    if (shoppingCart !== null && shoppingCart !== []) {
-      cart.push(item);
-      localStorage.setItem('shoppingCart', JSON.stringify(cart));
-    } else {
-      const NewCart = [];
-      NewCart.push(item);
-      localStorage.setItem('shoppingCart', JSON.stringify(NewCart));
-    }
   }
 
   setLocalStorage() {
@@ -49,13 +32,13 @@ class itemCard extends React.Component {
           <p className="item-card-quantity">Quantity: {this.setQuantity}</p>
           <Link data-testid="product-detail-link" onClick={this.setLocalStorage} to={`/item-details/${id}`} >Mostrar detalhes</Link>
           <button
-            onClick={this.setCart}
+            onClick={() => { setToCart(this.props.item); }}
             data-testid="product-add-to-cart"
           >
             Adicionar no carrinho
           </button>
         </div>
-      </div>
+      </div >
     );
   }
 }
