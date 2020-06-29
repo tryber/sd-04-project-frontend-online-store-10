@@ -1,12 +1,20 @@
 import React, { Component } from 'react';
-import ItemCard from './ItemCard';
+import ItemShoppingCart from './ItemShoppingCart';
 
 class Cart extends Component {
   constructor(props) {
     super(props);
     this.state = { items: null };
+    this.getItems = this.getItems.bind(this)
+  }
+  componentDidMount() {
+    this.getItems();
   }
 
+  getItems() {
+    const shoppingCart = JSON.parse(localStorage.getItem('shoppingCart'));
+    this.setState({ items: shoppingCart })
+  }
   render() {
     const { items } = this.state;
 
@@ -26,7 +34,7 @@ class Cart extends Component {
     }
     return (
       <div>
-        {items.map((item) => <ItemCard key={item.id} item={item} />)}
+        {items.map((item) => <ItemShoppingCart key={item.id} item={item} />)}
       </div>
     );
   }
