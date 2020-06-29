@@ -5,8 +5,12 @@ import Cart from '../componentes/Cart';
 function ShoppoingCart() {
   return (
     <div>
-      <Cart />
-      <Link to="/"><img src="../images/seta-voltar.png" alt="imagem de seta para voltar" /></Link>
+      <div>
+        <Link to="/"><img src="../images/seta-voltar.png" alt="imagem de seta para voltar" /></Link>
+      </div>
+      <div>
+        <Cart />
+      </div>
     </div>
   );
 }
