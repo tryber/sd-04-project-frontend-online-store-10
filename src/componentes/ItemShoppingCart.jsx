@@ -5,7 +5,7 @@ class ItemShoppingCard extends React.Component {
   constructor(props) {
     super(props);
     this.setQuantity = this.setQuantity.bind(this);
-    this.state = ({ quantity: 1 })
+    this.state = ({ quantity: 1 });
   }
   setQuantity() {
     const { item } = this.props;

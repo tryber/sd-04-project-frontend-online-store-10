@@ -5,7 +5,7 @@ class Cart extends Component {
   constructor(props) {
     super(props);
     this.state = { items: null };
-    this.getItems = this.getItems.bind(this)
+    this.getItems = this.getItems.bind(this);
   }
   componentDidMount() {
     this.getItems();
@@ -13,7 +13,7 @@ class Cart extends Component {
 
   getItems() {
     const shoppingCart = JSON.parse(localStorage.getItem('shoppingCart'));
-    this.setState({ items: shoppingCart })
+    this.setState({ items: shoppingCart });
   }
   render() {
     const { items } = this.state;
