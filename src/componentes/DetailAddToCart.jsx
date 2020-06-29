@@ -44,9 +44,9 @@ class DetailAddToCart extends React.Component {
       <div>
         Quantidade
         <div>
-          <button  onClick={this.minusQuantity}>-</button>
+          <button onClick={this.minusQuantity}>-</button>
           <span> {quantity} </span>
-          <button  onClick={this.plusQuantity}>+</button>
+          <button onClick={this.plusQuantity}>+</button>
         </div>
         <button >
           Adicionar ao Carrinho
