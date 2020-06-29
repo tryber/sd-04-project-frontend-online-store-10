@@ -21,7 +21,7 @@ class itemCard extends React.Component {
     const { item } = this.props;
     console.log(item);
     const shoppingCart = JSON.parse(localStorage.getItem('shoppingCart'));
-    const cart = !shoppingCart ? [] : shoppingCart.map((itemCart) => { return (itemCart) })
+    const cart = !shoppingCart ? [] : shoppingCart.map((itemCart) => (itemCart));
     console.log(cart);
     if (shoppingCart !== null && shoppingCart !== []) {
       cart.push(item);

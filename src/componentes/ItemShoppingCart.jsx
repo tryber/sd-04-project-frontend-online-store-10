@@ -7,14 +7,6 @@ class ItemShoppingCard extends React.Component {
     this.setQuantity = this.setQuantity.bind(this);
     this.state = ({ quantity: 1 });
   }
-  setQuantity() {
-    const { item } = this.props;
-    if (item.installments === null) {
-      return '';
-    }
-    return item.installments.quantity;
-  }
-
 
   render() {
     const { quantity } = this.state;
