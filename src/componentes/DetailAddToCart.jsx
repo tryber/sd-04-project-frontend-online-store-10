@@ -48,7 +48,7 @@ class DetailAddToCart extends React.Component {
           <span> {quantity} </span>
           <button onClick={this.plusQuantity}>+</button>
         </div>
-        <button data-testid="product-detail-add-to-cart">
+        <button >
           Adicionar ao Carrinho
         </button>
       </div>
