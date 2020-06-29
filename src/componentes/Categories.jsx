@@ -21,9 +21,7 @@ class Categories extends Component {
     const { categories, loading } = this.state;
     if (loading) { return (<Loading />); }
     return (
-      <form
-        className="category-list"
-      >
+      <form className="category-list">
         {categories.map(({ id, name }) => (
           <label
             data-testid="category"
