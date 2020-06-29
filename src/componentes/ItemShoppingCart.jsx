@@ -4,7 +4,6 @@ import React from 'react';
 class ItemShoppingCard extends React.Component {
   constructor(props) {
     super(props);
-    this.setQuantity = this.setQuantity.bind(this);
     this.state = ({ quantity: 1 });
   }
 
