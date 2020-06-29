@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import DetailAddToCart from '../componentes/DetailAddToCart';
+import setToCart from '../services/utils';
+import CartIcon from '../images/shopping-cart.png';
+
 
 class ItemDetails extends Component {
   constructor(props) {
@@ -10,7 +13,6 @@ class ItemDetails extends Component {
 
   render() {
     const item = JSON.parse(localStorage.getItem('ItemDetails'))[0];
-    console.log(item);
     const shipping = !item.shipping.free_shipping ? '' : 'Frete grátis';
     const soldQtt = item.sold_quantity;
     const qtt = item.available_quantity;
@@ -28,6 +30,13 @@ class ItemDetails extends Component {
         <DetailAddToCart />
         <div>
           <Link to="/">VOLTAR</Link>
+          <button
+            data-testid="product-detail-add-to-cart"
+            onClick={() => { setToCart(item); }}
+          >
+            Adicionar no carrinho
+            </button>
+          <Link data-testid="shopping-cart-button" to="/shopping-cart"><img src={CartIcon} /></Link>
         </div>
       </div>
     );

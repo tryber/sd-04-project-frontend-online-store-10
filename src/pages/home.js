@@ -32,7 +32,6 @@ class Home extends Component {
     const { searchText } = this.state;
     API.getProductsFromCategoryAndQuery(categoryId, searchText)
       .then((data) => {
-        console.log(data);
         this.setState({ items: data.results });
       });
   }
