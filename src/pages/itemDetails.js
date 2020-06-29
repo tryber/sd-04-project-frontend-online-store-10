@@ -9,7 +9,9 @@ class ItemDetails extends Component {
 
   render() {
     const item = JSON.parse(localStorage.getItem('ItemDetails'))[0];
-    const shipping = item.shipping.free_shipping ? 'Frete grátis' : '';
+    console.log(item);
+    
+    const shipping = !item.shipping.free_shipping ? '' : 'Frete grátis';
     const soldQtt = item.sold_quantity;
     const qtt = item.available_quantity;
     const { redirect } = this.state;
