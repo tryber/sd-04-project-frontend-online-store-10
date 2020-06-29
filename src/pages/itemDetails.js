@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
-import DetailAddToCart from '../componentes/DetailAddToCart';
 import setToCart from '../services/utils';
 import CartIcon from '../images/shopping-cart.png';
 
@@ -26,7 +25,6 @@ class ItemDetails extends Component {
         <p>{`Unidades vendidas: ${soldQtt}`}</p>
         <p>{`Quantidade disponível: ${qtt}`}</p>
         <p>{shipping}</p>
-        <DetailAddToCart />
         <div>
           <Link to="/">VOLTAR</Link>
           <button data-testid="product-detail-add-to-cart" onClick={() => { setToCart(item); }} >
